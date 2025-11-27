@@ -1,0 +1,48 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup SSH key
+        uses: webfactory/ssh-agent@v0.8.1
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Run deploy commands on server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            set -e
+            cd ${{ secrets.TARGET_DIR }}
+            echo "➡️ Git pull..."
+            git fetch --all
+            git checkout ${{ secrets.BRANCH || 'main' }}
+            git reset --hard origin/${{ secrets.BRANCH || 'main' }}
+            git pull origin ${{ secrets.BRANCH || 'main' }}
+            echo "➡️ Composer..."
+
+            if command -v php8.4 >/dev/null 2>&1; then
+              php8.4 /usr/local/bin/composer install --no-dev --optimize-autoloader --no-interaction
+            else
+              composer install --no-dev --optimize-autoloader --no-interaction
+            fi
+            echo "➡️ .env i permissions..."
+
+            php artisan migrate --force
+            php artisan route:cache || true
+            php artisan config:cache || true
+            php artisan view:cache || true
+            php artisan optimize:clear || true
+            echo "✔️ Deploy finished."

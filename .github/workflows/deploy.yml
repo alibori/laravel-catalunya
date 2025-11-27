@@ -31,11 +31,11 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           port: ${{ secrets.SSH_PORT }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
+          envs: TARGET_DIR,DEPLOY_BRANCH
           script: |
             set -e
 
             echo "➡️ Accessing directory..."
-            echo "TARGET_DIR = $TARGET_DIR"
             cd $TARGET_DIR
 
             echo "➡️ Updating code..."

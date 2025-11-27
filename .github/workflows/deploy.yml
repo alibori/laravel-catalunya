@@ -8,41 +8,54 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
+    env:
+      DEPLOY_BRANCH: ${{ secrets.BRANCH != '' && secrets.BRANCH || 'main' }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
       - name: Setup SSH key
-        uses: webfactory/ssh-agent@v0
+        uses: webfactory/ssh-agent@v1
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      - name: Run deploy commands on server
-        uses: appleboy/ssh-action@master
+      - name: Deploy to VPS
+        uses: appleboy/ssh-action@v1.0.3
+        env:
+          TARGET_DIR: ${{ secrets.TARGET_DIR }}
+          DEPLOY_BRANCH: 'main'
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           port: ${{ secrets.SSH_PORT }}
           script: |
             set -e
-            cd ${{ secrets.TARGET_DIR }}
-            echo "➡️ Git pull..."
+
+            echo "➡️ Accessing directory..."
+            cd $TARGET_DIR
+
+            echo "➡️ Updating code..."
             git fetch --all
-            git checkout ${{ secrets.BRANCH || 'main' }}
-            git reset --hard origin/${{ secrets.BRANCH || 'main' }}
-            git pull origin ${{ secrets.BRANCH || 'main' }}
+            git checkout $DEPLOY_BRANCH
+            git reset --hard origin/$DEPLOY_BRANCH
+            git pull origin $DEPLOY_BRANCH
+
             echo "➡️ Composer..."
-
             if command -v php8.4 >/dev/null 2>&1; then
-              php8.4 /usr/local/bin/composer install --no-dev --optimize-autoloader --no-interaction
+              PHP=php8.4
             else
-              composer install --no-dev --optimize-autoloader --no-interaction
+              PHP=php
             fi
-            echo "➡️ .env i permissions..."
 
-            php artisan migrate --force
-            php artisan route:cache || true
-            php artisan config:cache || true
-            php artisan view:cache || true
-            php artisan optimize:clear || true
-            echo "✔️ Deploy finished."
+            $PHP /usr/local/bin/composer install --no-dev --optimize-autoloader --no-interaction
+
+            echo "➡️ Migrations & cache..."
+            $PHP artisan migrate --force
+            $PHP artisan route:cache || true
+            $PHP artisan config:cache || true
+            $PHP artisan view:cache || true
+            $PHP artisan optimize:clear || true
+
+            echo "✔️ Deploy finished!"

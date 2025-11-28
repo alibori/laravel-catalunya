@@ -9,7 +9,6 @@ This repository contains the Laravel Catalunya application. It's a Laravel v12 a
 - PHP: 8.4
 - Laravel Framework: v12
 - Livewire: v3
-- Livewire FluxUI Pro
 - Tailwind CSS: v4
 - Pest: v4
 

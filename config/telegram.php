@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Telegram\Bot\Commands\HelpCommand;
 
 return [

@@ -25,7 +25,7 @@ jobs:
         uses: appleboy/ssh-action@v1.0.3
         env:
           TARGET_DIR: ${{ secrets.TARGET_DIR }}
-          DEPLOY_BRANCH: 'main'
+          DEPLOY_BRANCH: ${{ env.DEPLOY_BRANCH }}
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
@@ -45,13 +45,20 @@ jobs:
             git pull origin $DEPLOY_BRANCH
 
             echo "➡️ Composer..."
+            rm -rf vendor/
             if command -v php8.4 >/dev/null 2>&1; then
               PHP=php8.4
             else
               PHP=php
             fi
-
             $PHP /usr/local/bin/composer install --no-dev --optimize-autoloader --no-interaction
+
+            echo "➡️ NVM & Node.js..."
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            nvm use || nvm install
+            npm install
+            npm run build
 
             echo "➡️ Migrations & cache..."
             $PHP artisan migrate --force
@@ -61,3 +68,11 @@ jobs:
             $PHP artisan optimize:clear || true
 
             echo "✔️ Deploy finished!"
+
+      - name: Create GitHub Deployment
+        uses: actions/deployments@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment: production
+          description: "Deployment completed successfully"
+          state: success

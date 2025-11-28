@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Telegram\Bot\Api;
 
 class TelegramWebhookController extends Controller
@@ -13,6 +14,9 @@ class TelegramWebhookController extends Controller
      */
     public function __invoke(Request $request): JsonResponse
     {
+        Log::info('Telegram Webhook received:');
+        Log::info(print_r($request->all(), true));
+
         $telegram = new Api(config('telegram.bots.mybot.token'));
         $update = $telegram->getWebhookUpdate();
 

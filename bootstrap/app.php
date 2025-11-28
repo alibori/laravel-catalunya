@@ -17,5 +17,11 @@ return Application::configure(basePath: dirname(__DIR__))
 
     })
     ->withExceptions(function (Exceptions $exceptions): void {
-
+        $exceptions->report(function (Telegram\Bot\Exceptions\TelegramSDKException $e) {
+            \Illuminate\Support\Facades\Log::channel('telegram')->error(
+                $e->getMessage().':'.PHP_EOL.
+                $e->getFile().':'.$e->getLine().PHP_EOL.
+                $e->getTraceAsString()
+            );
+        });
     })->create();

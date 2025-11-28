@@ -129,6 +129,14 @@ return [
             'path' => storage_path('logs/laravel.log'),
         ],
 
+        // Custom channels can be added below
+        'telegram' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/custom/telegram.log'),
+            'level' => env('LOG_LEVEL', 'debug'),
+            'days' => env('LOG_DAILY_DAYS', 14),
+            'replace_placeholders' => true,
+        ],
     ],
 
 ];

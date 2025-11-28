@@ -1,50 +1,27 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
+use App\Actions\TelegramBot\SendWelcomeMessageToNewMembersAction;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
-use Telegram\Bot\Api;
+use Telegram\Bot\Exceptions\TelegramSDKException;
 
-class TelegramWebhookController extends Controller
+final class TelegramWebhookController extends Controller
 {
+    public function __construct(private SendWelcomeMessageToNewMembersAction $sendWelcomeMessageToNewMembersAction)
+    {
+    }
+
     /**
-     * Handle the incoming request.
+     * @param Request $request
+     * @return JsonResponse
+     * @throws TelegramSDKException
      */
     public function __invoke(Request $request): JsonResponse
     {
-        Log::info('Telegram Webhook received:');
-        Log::info(print_r($request->all(), true));
-
-        $telegram = new Api(config('telegram.bots.mybot.token'));
-        $update = $telegram->getWebhookUpdate();
-
-        if (isset($update['chat_member'])) {
-            return $this->handleChatMember($telegram, $update['chat_member']);
-        }
-
-        return response()->json('OK');
-    }
-
-    private function handleChatMember(Api $telegram, $data): JsonResponse
-    {
-        $new = $data['new_chat_member'] ?? null;
-
-        if (!$new) {
-            return response()->json('OK');
-        }
-
-        $name = $new['user']['first_name'] ?? 'Usuari';
-
-        $thread = config('telegram.bots.mybot.threads.welcome');
-
-        $telegram->sendMessage([
-            'chat_id'            => $data['chat']['id'],
-            'message_thread_id'  => $thread,
-            'text'               => "Benvingut/da, $name! 🎉",
-        ]);
-
-        return response()->json('OK');
+        return $this->sendWelcomeMessageToNewMembersAction->execute();
     }
 }

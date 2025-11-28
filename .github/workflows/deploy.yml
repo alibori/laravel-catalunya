@@ -68,11 +68,3 @@ jobs:
             $PHP artisan optimize:clear || true
 
             echo "✔️ Deploy finished!"
-
-      - name: Create GitHub Deployment
-        uses: actions/deployments@v1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          environment: production
-          description: "Deployment completed successfully"
-          state: success

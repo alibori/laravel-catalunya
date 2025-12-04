@@ -9,9 +9,9 @@ parameters:
     level: 9
 
     ignoreErrors:
-        # - '#PHPDoc tag @mixin contains unknown class App\\Models#'
+        - '#PHPDoc tag @mixin contains unknown class App\\Models#'
 
     excludePaths:
-        # - ./
+        - ./app/Filament
 
     treatPhpDocTypesAsCertain: false

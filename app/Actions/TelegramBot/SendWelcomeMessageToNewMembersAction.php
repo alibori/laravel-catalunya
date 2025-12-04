@@ -18,7 +18,10 @@ final class SendWelcomeMessageToNewMembersAction
      */
     public function __construct()
     {
-        $this->telegram = new Api(config('telegram.bots.mybot.token'));
+        /** @var string $token */
+        $token = config('telegram.bots.mybot.token');
+
+        $this->telegram = new Api($token);
     }
 
     /**
@@ -34,7 +37,10 @@ final class SendWelcomeMessageToNewMembersAction
         if (isset($update['chat_member'])) {
             Log::channel('telegram')->info('Handling chat member update.');
 
-            return $this->handleChatMember($update['chat_member']);
+            /** @var array<array-key, mixed> $chatMember */
+            $chatMember = $update['chat_member'];
+
+            return $this->handleChatMember($chatMember);
         }
 
         return response()->json('OK');
@@ -47,13 +53,18 @@ final class SendWelcomeMessageToNewMembersAction
      */
     private function handleChatMember(array $data): JsonResponse
     {
+        /** @var array<array-key, mixed>|null $new */
         $new = $data['new_chat_member'] ?? null;
 
         if ( ! $new) {
             return response()->json('OK');
         }
 
-        $name = $new['user']['first_name'] ?? 'Usuari';
+        /** @var array<array-key, mixed> $user */
+        $user = $new['user'];
+
+        /** @var string $name */
+        $name = $user['first_name'] ?? 'Usuari';
 
         $thread = config('telegram.bots.mybot.threads.welcome');
 

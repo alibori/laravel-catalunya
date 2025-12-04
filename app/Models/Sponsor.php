@@ -8,6 +8,9 @@ use Database\Factories\SponsorFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @mixin IdeHelperSponsor
+ */
 final class Sponsor extends Model
 {
     /** @use HasFactory<SponsorFactory> */

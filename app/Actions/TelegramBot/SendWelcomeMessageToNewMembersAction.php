@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Actions\TelegramBot;
 
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Log;
 use Telegram\Bot\Api;
 use Telegram\Bot\Exceptions\TelegramSDKException;
 
@@ -17,7 +18,10 @@ final class SendWelcomeMessageToNewMembersAction
      */
     public function __construct()
     {
-        $this->telegram = new Api(config('telegram.bots.mybot.token'));
+        /** @var string $token */
+        $token = config('telegram.bots.mybot.token');
+
+        $this->telegram = new Api($token);
     }
 
     /**
@@ -26,10 +30,17 @@ final class SendWelcomeMessageToNewMembersAction
      */
     public function execute(): JsonResponse
     {
+        Log::channel('telegram')->info('Received Telegram webhook update.');
+
         $update = $this->telegram->getWebhookUpdate();
 
         if (isset($update['chat_member'])) {
-            return $this->handleChatMember($update['chat_member']);
+            Log::channel('telegram')->info('Handling chat member update.');
+
+            /** @var array<array-key, mixed> $chatMember */
+            $chatMember = $update['chat_member'];
+
+            return $this->handleChatMember($chatMember);
         }
 
         return response()->json('OK');
@@ -42,13 +53,18 @@ final class SendWelcomeMessageToNewMembersAction
      */
     private function handleChatMember(array $data): JsonResponse
     {
+        /** @var array<array-key, mixed>|null $new */
         $new = $data['new_chat_member'] ?? null;
 
         if ( ! $new) {
             return response()->json('OK');
         }
 
-        $name = $new['user']['first_name'] ?? 'Usuari';
+        /** @var array<array-key, mixed> $user */
+        $user = $new['user'];
+
+        /** @var string $name */
+        $name = $user['first_name'] ?? 'Usuari';
 
         $thread = config('telegram.bots.mybot.threads.welcome');
 

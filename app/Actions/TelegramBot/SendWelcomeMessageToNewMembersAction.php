@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Actions\TelegramBot;
 
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Log;
 use Telegram\Bot\Api;
 use Telegram\Bot\Exceptions\TelegramSDKException;
 
@@ -26,9 +27,13 @@ final class SendWelcomeMessageToNewMembersAction
      */
     public function execute(): JsonResponse
     {
+        Log::channel('telegram')->info('Received Telegram webhook update.');
+
         $update = $this->telegram->getWebhookUpdate();
 
         if (isset($update['chat_member'])) {
+            Log::channel('telegram')->info('Handling chat member update.');
+
             return $this->handleChatMember($update['chat_member']);
         }
 

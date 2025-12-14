@@ -45,7 +45,7 @@ namespace App\Models{
  * @mixin \Eloquent
  */
 	#[\AllowDynamicProperties]
-	class IdeHelperJobPosting {}
+	final class IdeHelperJobPosting {}
 }
 
 namespace App\Models{

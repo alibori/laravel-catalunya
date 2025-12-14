@@ -12,6 +12,7 @@ use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
+use Illuminate\Support\Facades\Auth;
 
 final class JobPostingForm
 {
@@ -21,28 +22,39 @@ final class JobPostingForm
             ->components([
                 Select::make('user_id')
                     ->relationship('user', 'name')
-                    ->required(),
+                    ->required()
+                    ->label(__('User'))
+                    ->default(Auth::user()?->id)
+                    ->hidden( ! Auth::user()?->is_admin),
                 TextInput::make('title')
+                    ->label(__('Title'))
                     ->required()
                     ->columnSpanFull(),
                 RichEditor::make('description')
+                    ->label(__('Description'))
                     ->required()
                     ->columnSpanFull(),
                 Select::make('type')
+                    ->label(__('Type'))
                     ->options(JobPostingTypeEnum::class)
                     ->required(),
                 Select::make('work_mode')
+                    ->label(__('Work Mode'))
                     ->options(WorkModeEnum::class)
                     ->required(),
                 Select::make('employment_hours')
+                    ->label(__('Employment Hours'))
                     ->options(EmploymentHoursEnum::class)
                     ->required(),
                 TextInput::make('salary')
+                    ->label(__('Salary'))
                     ->required(),
                 TextInput::make('application_url')
+                    ->label(__('Application URL'))
                     ->url()
-                    ->required(),
+                    ->nullable(),
                 Select::make('status')
+                    ->label(__('Status'))
                     ->options(JobPostingStatusEnum::class)
                     ->required(),
             ]);

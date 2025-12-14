@@ -26924,6 +26924,162 @@ namespace Livewire\Features\SupportTesting {
             }
     }
 
+namespace App\Filament\Resources\JobPostings\Pages {
+    /**
+     */
+    class CreateJobPosting extends \Filament\Resources\Pages\CreateRecord {
+            }
+    /**
+     */
+    class EditJobPosting extends \Filament\Resources\Pages\EditRecord {
+            }
+    /**
+     */
+    class ListJobPostings extends \Filament\Resources\Pages\ListRecords {
+            }
+    }
+
+namespace Filament\Resources\Pages {
+    /**
+     * @property-read Schema $form
+     */
+    class CreateRecord extends \Filament\Resources\Pages\Page {
+            }
+    /**
+     */
+    class Page extends \Filament\Pages\Page {
+            }
+    /**
+     * @template TModel of Model = Model
+     * @property-read Schema $form
+     */
+    class EditRecord extends \Filament\Resources\Pages\Page {
+            }
+    /**
+     */
+    class ListRecords extends \Filament\Resources\Pages\Page {
+            }
+    }
+
+namespace Filament\Pages {
+    /**
+     */
+    class Page extends \Filament\Pages\BasePage {
+            }
+    /**
+     */
+    class BasePage extends \Livewire\Component {
+            }
+    /**
+     */
+    class Dashboard extends \Filament\Pages\Page {
+            }
+    /**
+     */
+    class SimplePage extends \Filament\Pages\BasePage {
+            }
+    }
+
+namespace App\Filament\Resources\Sponsors\Pages {
+    /**
+     */
+    class CreateSponsor extends \Filament\Resources\Pages\CreateRecord {
+            }
+    /**
+     */
+    class EditSponsor extends \Filament\Resources\Pages\EditRecord {
+            }
+    /**
+     */
+    class ListSponsors extends \Filament\Resources\Pages\ListRecords {
+            }
+    }
+
+namespace App\Filament\Resources\Users\Pages {
+    /**
+     */
+    class CreateUser extends \Filament\Resources\Pages\CreateRecord {
+            }
+    /**
+     */
+    class EditUser extends \Filament\Resources\Pages\EditRecord {
+            }
+    /**
+     */
+    class ListUsers extends \Filament\Resources\Pages\ListRecords {
+            }
+    }
+
+namespace Filament\Widgets {
+    /**
+     */
+    class AccountWidget extends \Filament\Widgets\Widget {
+            }
+    /**
+     */
+    class Widget extends \Livewire\Component {
+            }
+    }
+
+namespace Filament\Livewire {
+    /**
+     */
+    class DatabaseNotifications extends \Filament\Notifications\Livewire\DatabaseNotifications {
+            }
+    /**
+     */
+    class GlobalSearch extends \Livewire\Component {
+            }
+    /**
+     */
+    class Notifications extends \Filament\Notifications\Livewire\Notifications {
+            }
+    /**
+     */
+    class Sidebar extends \Livewire\Component {
+            }
+    /**
+     */
+    class SimpleUserMenu extends \Livewire\Component {
+            }
+    /**
+     */
+    class Topbar extends \Livewire\Component {
+            }
+    }
+
+namespace Filament\Notifications\Livewire {
+    /**
+     */
+    class DatabaseNotifications extends \Livewire\Component {
+            }
+    /**
+     */
+    class Notifications extends \Livewire\Component {
+            }
+    }
+
+namespace Filament\Auth\Pages {
+    /**
+     * @property-read Schema $form
+     */
+    class EditProfile extends \Filament\Pages\Page {
+            }
+    /**
+     * @property-read Action $registerAction
+     * @property-read Schema $form
+     * @property-read Schema $multiFactorChallengeForm
+     */
+    class Login extends \Filament\Pages\SimplePage {
+            }
+    /**
+     * @property-read Action $loginAction
+     * @property-read Schema $form
+     */
+    class Register extends \Filament\Pages\SimplePage {
+            }
+    }
+
 namespace Illuminate\View {
     /**
      */
@@ -32383,6 +32539,11 @@ namespace  {
 }
 
 
+namespace Facades\Livewire\Features\SupportFileUploads {
+    /**
+     * @mixin \Livewire\Features\SupportFileUploads\GenerateSignedUploadUrl     */
+    class GenerateSignedUploadUrl extends \Livewire\Features\SupportFileUploads\GenerateSignedUploadUrl {}
+}
 
 
 

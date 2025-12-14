@@ -17,30 +17,38 @@ final class JobPostingsTable
         return $table
             ->columns([
                 TextColumn::make('user.name')
+                    ->label(__('User'))
                     ->searchable(),
                 TextColumn::make('title')
+                    ->label(__('Title'))
                     ->searchable(),
                 TextColumn::make('type')
+                    ->label(__('Type'))
                     ->badge()
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('work_mode')
+                    ->label(__('Work Mode'))
                     ->badge()
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('employment_hours')
+                    ->label(__('Employment Hours'))
                     ->badge()
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('status')
+                    ->label(__('Status'))
                     ->badge()
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('created_at')
+                    ->label(__('Created At'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('updated_at')
+                    ->label(__('Updated At'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),

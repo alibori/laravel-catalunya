@@ -10,11 +10,14 @@ use App\Filament\Resources\JobPostings\Pages\ListJobPostings;
 use App\Filament\Resources\JobPostings\Schemas\JobPostingForm;
 use App\Filament\Resources\JobPostings\Tables\JobPostingsTable;
 use App\Models\JobPosting;
+use App\Models\User;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Auth;
 
 final class JobPostingResource extends Resource
 {
@@ -25,6 +28,25 @@ final class JobPostingResource extends Resource
     protected static ?int $navigationSort = 3;
 
     protected static ?string $recordTitleAttribute = 'title';
+
+    public static function getModelLabel(): string
+    {
+        return __('Job Posting');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return __('Job Postings');
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        if (Auth::user() instanceof User && Auth::user()->is_admin) {
+            return parent::getEloquentQuery();
+        }
+
+        return parent::getEloquentQuery()->where('user_id', Auth::user()->id);
+    }
 
     public static function form(Schema $schema): Schema
     {

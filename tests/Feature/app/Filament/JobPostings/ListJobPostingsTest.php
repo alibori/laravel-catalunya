@@ -12,10 +12,27 @@ beforeEach(function (): void {
     $this->actingAs($admin);
 });
 
-it('can load the page', function (): void {
+test('can load the page', function (): void {
     $jobPostings = JobPosting::factory()->count(5)->create();
 
     Livewire::test(ListJobPostings::class)
         ->assertOk()
         ->assertCanSeeTableRecords($jobPostings);
+});
+
+test('non admin user only see own job postings', function (): void {
+    $jobPostings = JobPosting::factory()->count(5)->create();
+
+    $user = User::factory()->create();
+
+    $ownJobPostings = JobPosting::factory()->count(3)->create([
+        'user_id' => $user->id,
+    ]);
+
+    $this->actingAs($user);
+
+    Livewire::test(ListJobPostings::class)
+        ->assertOk()
+        ->assertCanSeeTableRecords($ownJobPostings)
+        ->assertCanNotSeeTableRecords($jobPostings);
 });

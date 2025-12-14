@@ -6,6 +6,16 @@
         </x-buttons.tertiary>
     </a>
 
+    <div class="flex gap-4 text-sm">
+        <a href="{{ route('legal.terms') }}" class="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors">
+            Termes i condicions
+        </a>
+        <span class="text-zinc-400 dark:text-zinc-600">·</span>
+        <a href="{{ route('legal.privacy') }}" class="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors">
+            Política de privacitat
+        </a>
+    </div>
+
     <div class="text-center">
         <x-texts.paragraph class="text-sm">
             © {{ date('Y') }} Laravel Catalunya

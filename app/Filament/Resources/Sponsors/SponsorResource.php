@@ -15,7 +15,6 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
-use UnitEnum;
 
 final class SponsorResource extends Resource
 {
@@ -23,9 +22,22 @@ final class SponsorResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::CurrencyEuro;
 
-    protected static string|null|UnitEnum $navigationGroup = 'Sponsorship';
-
     protected static ?string $recordTitleAttribute = 'name';
+
+    public static function getNavigationGroup(): ?string
+    {
+        return __('Sponsorship');
+    }
+
+    public static function getModelLabel(): string
+    {
+        return __('Sponsor');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return __('Sponsors');
+    }
 
     public static function form(Schema $schema): Schema
     {

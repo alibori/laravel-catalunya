@@ -15,11 +15,13 @@ final class SponsorForm
         return $schema
             ->components([
                 TextInput::make('name')
+                    ->label(__('Name'))
                     ->required(),
                 TextInput::make('website')
+                    ->label(__('Website'))
                     ->url(),
                 FileUpload::make('logo_path')
-                    ->label('Logo')
+                    ->label(__('Logo'))
                     ->image()
                     ->imageEditor()
                     ->disk(config('filesystems.default'))

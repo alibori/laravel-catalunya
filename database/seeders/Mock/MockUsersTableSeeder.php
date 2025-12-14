@@ -26,5 +26,7 @@ final class MockUsersTableSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'user@example.com',
         ]);
+
+        User::factory()->count(4)->create();
     }
 }

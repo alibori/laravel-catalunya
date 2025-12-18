@@ -64,9 +64,10 @@ jobs:
 
             echo "➡️ Migrations & cache..."
             $PHP artisan migrate --force
-            $PHP artisan route:cache || true
-            $PHP artisan config:cache || true
-            $PHP artisan view:cache || true
             $PHP artisan optimize:clear || true
+            $PHP artisan optimize || true
+
+            echo "➡️ Queues..."
+            $PHP artisan queue:restart || true
 
             echo "✔️ Deploy finished!"

@@ -41,6 +41,7 @@ final class JobPostingFactory extends Factory
             'salary' => $this->faker->randomElement(['15000 EUR', '20000 EUR', '30000 EUR', '50000 EUR']),
             'application_url' => $this->faker->url(),
             'status' => $this->faker->randomElement(JobPostingStatusEnum::cases()),
+            'telegram_sync' => $this->faker->boolean(),
         ];
     }
 }

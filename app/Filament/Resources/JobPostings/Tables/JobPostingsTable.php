@@ -4,11 +4,17 @@ declare(strict_types=1);
 
 namespace App\Filament\Resources\JobPostings\Tables;
 
+use App\Jobs\JobPostingShoutOutJob;
+use App\Models\JobPosting;
+use Filament\Actions\Action;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Support\Enums\Alignment;
+use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Support\Facades\Auth;
 
 final class JobPostingsTable
 {
@@ -42,6 +48,11 @@ final class JobPostingsTable
                     ->badge()
                     ->searchable()
                     ->sortable(),
+                IconColumn::make('telegram_sync')
+                    ->label(__('Sent to Telegram'))
+                    ->sortable()
+                    ->alignment(Alignment::Center)
+                    ->visible(Auth::user()?->is_admin ?? false),
                 TextColumn::make('created_at')
                     ->label(__('Created At'))
                     ->dateTime()
@@ -58,6 +69,13 @@ final class JobPostingsTable
             ])
             ->recordActions([
                 EditAction::make(),
+                Action::make('shoutout')
+                    ->icon('heroicon-o-megaphone')
+                    ->iconButton()
+                    ->color('info')
+                    ->requiresConfirmation()
+                    ->visible(Auth::user()?->is_admin ?? false)
+                    ->action(fn (JobPosting $record) => JobPostingShoutOutJob::dispatch($record->id)),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

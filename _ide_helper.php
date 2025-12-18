@@ -27019,6 +27019,17 @@ namespace Filament\Widgets {
      */
     class Widget extends \Livewire\Component {
             }
+    /**
+     */
+    class ChartWidget extends \Filament\Widgets\Widget {
+            }
+    }
+
+namespace App\Livewire {
+    /**
+     */
+    class NewUsersWidget extends \Filament\Widgets\ChartWidget {
+            }
     }
 
 namespace Filament\Livewire {

@@ -5,6 +5,8 @@
     "Job Postings": "Ofertes de feina",
     "User": "Usuari",
     "Users": "Usuaris",
+    "New User": "Nou usuari",
+    "New Users": "Nous usuaris",
     "Name": "Nom",
     "Email": "Correu electrònic",
     "Password": "Contrasenya",
@@ -40,5 +42,6 @@
     "Sponsorship": "Patrocini",
     "Sponsor": "Patrocinador",
     "Sponsors": "Patrocinadors",
-    "Website": "Lloc web"
+    "Website": "Lloc web",
+    "Sent to Telegram": "Enviat a Telegram"
 }

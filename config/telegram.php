@@ -44,8 +44,12 @@ return [
             'commands' => [
                 // Acme\Project\Commands\MyTelegramBot\BotCommand::class
             ],
+            'chats' => [
+                'jobs' => env('TELEGRAM_JOBS_CHAT_ID', null),
+            ],
             'threads' => [
                 'welcome' => env('TELEGRAM_WELCOME_THREAD_ID', null),
+                'jobs' => env('TELEGRAM_JOBS_THREAD_ID', null),
             ],
         ],
 

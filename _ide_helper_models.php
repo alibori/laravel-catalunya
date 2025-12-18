@@ -21,10 +21,11 @@ namespace App\Models{
  * @property \App\Enums\JobPosting\WorkModeEnum $work_mode
  * @property \App\Enums\JobPosting\EmploymentHoursEnum $employment_hours
  * @property string $salary
- * @property string $application_url
+ * @property string|null $application_url
  * @property \App\Enums\JobPosting\JobPostingStatusEnum $status
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property bool $telegram_sync
  * @property-read \App\Models\User $user
  * @method static \Database\Factories\JobPostingFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder<static>|JobPosting newModelQuery()
@@ -37,6 +38,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder<static>|JobPosting whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|JobPosting whereSalary($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|JobPosting whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|JobPosting whereTelegramSync($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|JobPosting whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|JobPosting whereType($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|JobPosting whereUpdatedAt($value)

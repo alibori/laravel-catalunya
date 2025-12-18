@@ -36,6 +36,7 @@ final class JobPosting extends Model
             'work_mode' => WorkModeEnum::class,
             'employment_hours' => EmploymentHoursEnum::class,
             'status' => JobPostingStatusEnum::class,
+            'telegram_sync' => 'boolean',
         ];
     }
 
@@ -49,6 +50,7 @@ final class JobPosting extends Model
         'salary',
         'application_url',
         'status',
+        'telegram_sync'
     ];
 
     /**

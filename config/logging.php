@@ -137,6 +137,14 @@ return [
             'days' => env('LOG_DAILY_DAYS', 14),
             'replace_placeholders' => true,
         ],
+
+        'job-posting-shout-out' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/custom/job-posting-shout-out.log'),
+            'level' => env('LOG_LEVEL', 'debug'),
+            'days' => env('LOG_DAILY_DAYS', 14),
+            'replace_placeholders' => true,
+        ],
     ],
 
 ];

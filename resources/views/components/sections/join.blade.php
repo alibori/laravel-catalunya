@@ -8,7 +8,7 @@
     </x-texts.paragraph>
 
     <a href="https://t.me/laravelcatalunya" target="_blank" rel="noopener noreferrer" class="mx-auto w-fit block">
-        <x-buttons.primary>
+        <x-buttons.primary class="text-base!">
             <x-icons.telegram />
             Uneix-te ara
         </x-buttons.primary>

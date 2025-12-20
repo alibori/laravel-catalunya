@@ -48,6 +48,8 @@ final class AppPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Amber,
             ])
+            ->spa()
+            ->unsavedChangesAlerts()
             ->resources([
                 JobPostingResource::class,
             ])
@@ -71,6 +73,7 @@ final class AppPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
+                'verified'
             ]);
     }
 }

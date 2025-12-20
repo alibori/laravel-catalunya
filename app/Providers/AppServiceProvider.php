@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Client\RequestException;
+use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
@@ -28,6 +30,7 @@ final class AppServiceProvider extends ServiceProvider
         $this->configureModels();
         $this->configureUrl();
         $this->configureRequestsExceptions();
+        $this->configureEmailVerificationMailContent();
     }
 
     /**
@@ -64,5 +67,18 @@ final class AppServiceProvider extends ServiceProvider
     private function configureRequestsExceptions(): void
     {
         RequestException::dontTruncate();
+    }
+
+    /**
+     * Configure the content of the email verification mail.
+     */
+    private function configureEmailVerificationMailContent(): void
+    {
+        VerifyEmail::toMailUsing(function (object $notifiable, string $url) {
+            return (new MailMessage)
+                ->subject(__('Verify Email Address'))
+                ->line(__('Click the button below to verify your email address.'))
+                ->action(__('Verify Email Address'), $url);
+        });
     }
 }

@@ -34,6 +34,16 @@ final class AppPanelProvider extends PanelProvider
             PanelsRenderHook::AUTH_REGISTER_FORM_BEFORE,
             fn (): View => view('filament.panels.app.auth-register-form-before-render-hook'),
         );
+
+        FilamentView::registerRenderHook(
+            PanelsRenderHook::AUTH_REGISTER_FORM_AFTER,
+            fn (): View => view('filament.panels.app.auth-form-after-render-hook'),
+        );
+
+        FilamentView::registerRenderHook(
+            PanelsRenderHook::AUTH_LOGIN_FORM_AFTER,
+            fn (): View => view('filament.panels.app.auth-form-after-render-hook'),
+        );
     }
     public function panel(Panel $panel): Panel
     {
@@ -48,6 +58,8 @@ final class AppPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Amber,
             ])
+            ->spa()
+            ->unsavedChangesAlerts()
             ->resources([
                 JobPostingResource::class,
             ])
@@ -71,6 +83,7 @@ final class AppPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
+                'verified'
             ]);
     }
 }

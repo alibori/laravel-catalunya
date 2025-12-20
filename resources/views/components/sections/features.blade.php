@@ -2,7 +2,7 @@
     <x-texts.title tag="h3" class="text-3xl lg:text-4xl font-bold text-center mb-12">
         Què oferim
     </x-texts.title>
-    
+
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
         <x-feature>
             <x-slot name="icon">
@@ -12,7 +12,7 @@
                 Comunitat Activa
             </x-slot>
             <x-slot name="description">
-                Connecta amb desenvolupadors Laravel de Catalunya. Comparteix dubtes, experiències i aprèn dels altres.
+                Connecta amb desenvolupadors/es Laravel de Catalunya. Comparteix dubtes, experiències i aprèn!
             </x-slot>
         </x-feature>
 

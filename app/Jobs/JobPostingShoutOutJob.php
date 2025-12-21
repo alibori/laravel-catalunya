@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Jobs;
 
 use App\Actions\TelegramBot\SendJobPostingToChannelAction;
+use App\Events\JobPostingShoutOutDoneEvent;
 use App\Models\JobPosting;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -38,6 +39,8 @@ final class JobPostingShoutOutJob implements ShouldQueue
             $jobPosting = JobPosting::findOrFail($this->jobPostingId);
 
             $action->execute($jobPosting);
+
+            JobPostingShoutOutDoneEvent::dispatch($jobPosting);
 
             Log::channel($this->logChannel)->info('Job posting shout-out for job posting #'.$this->jobPostingId.' finished successfully');
         } catch (Throwable $exception) {

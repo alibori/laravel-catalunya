@@ -55,11 +55,14 @@ final class AppPanelProvider extends PanelProvider
             ->path($panelPath)
             ->login()
             ->registration()
+            ->emailVerification()
             ->colors([
                 'primary' => Color::Amber,
             ])
             ->spa()
             ->unsavedChangesAlerts()
+            ->databaseNotifications()
+            ->databaseNotificationsPolling('240s')
             ->resources([
                 JobPostingResource::class,
             ])

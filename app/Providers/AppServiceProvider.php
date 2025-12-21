@@ -74,11 +74,9 @@ final class AppServiceProvider extends ServiceProvider
      */
     private function configureEmailVerificationMailContent(): void
     {
-        VerifyEmail::toMailUsing(function (object $notifiable, string $url) {
-            return (new MailMessage)
-                ->subject(__('Verify Email Address'))
-                ->line(__('Click the button below to verify your email address.'))
-                ->action(__('Verify Email Address'), $url);
-        });
+        VerifyEmail::toMailUsing(fn (object $notifiable, string $url) => (new MailMessage())
+            ->subject(__('Verify Email Address'))
+            ->line(__('Click the button below to verify your email address.'))
+            ->action(__('Verify Email Address'), $url));
     }
 }

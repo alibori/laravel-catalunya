@@ -1,4 +1,4 @@
-<section id="hero" class="text-center h-dvh -mt-16 flex flex-col items-center justify-center relative">
+<section id="hero" class="text-center h-dvh -mt-24 flex flex-col items-center justify-center relative">
     <h1 class="text-5xl lg:text-7xl font-bold text-zinc-900 dark:text-white leading-tight mb-8">
         Et donem la benvinguda a
         <span class="text-transparent bg-clip-text bg-linear-to-r from-red-600 via-orange-500 to-red-600">

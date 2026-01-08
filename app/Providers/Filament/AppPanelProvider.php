@@ -54,10 +54,17 @@ final class AppPanelProvider extends PanelProvider
             ->id('app')
             ->path($panelPath)
             ->login()
+            ->brandLogo(fn() => view('components.icons.laravel-catalunya-logo'))
+            ->brandLogoHeight('4rem')
             ->registration()
             ->emailVerification()
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => Color::hex('#F97316'),
+                'danger'  => Color::hex('#DC2626'),
+                'warning' => Color::hex('#FB923C'),
+                'info'    => Color::hex('#6B7280'),
+                'success' => Color::hex('#16A34A'),
+                'gray'    => Color::Slate,
             ])
             ->spa()
             ->unsavedChangesAlerts()
@@ -66,13 +73,10 @@ final class AppPanelProvider extends PanelProvider
             ->resources([
                 JobPostingResource::class,
             ])
-            ->pages([
-                Dashboard::class,
-            ])
+            ->discoverPages(in: app_path('Filament/App/Pages'), for: 'App\Filament\App\Pages')
+            ->pages([])
             ->discoverWidgets(in: app_path('Filament/App/Widgets'), for: 'App\Filament\App\Widgets')
-            ->widgets([
-                AccountWidget::class,
-            ])
+            ->widgets([])
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,

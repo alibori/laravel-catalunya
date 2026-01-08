@@ -2,10 +2,7 @@
     class="sticky z-10 top-0 left-0 px-4 lg:px-6 py-3 lg:py-4 w-full bg-transparent backdrop-blur max-w-7xl mx-auto">
     <nav class="flex items-center justify-between">
         <a href="{{ route('home') }}" class="flex items-center gap-2">
-            <x-icons.laravel />
-            <span class="text-lg lg:text-xl font-bold text-zinc-900 dark:text-white hidden md:block">
-                Laravel Catalunya
-            </span>
+            <x-icons.laravel-catalunya-logo />
         </a>
 
         <!-- Desktop Navigation -->
@@ -110,7 +107,7 @@
                     <span>GitHub</span>
                 </x-buttons.secondary>
             </a>
-            
+
             <x-theme :desc="true" />
         </div>
     </x-card>

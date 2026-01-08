@@ -47,5 +47,11 @@
     "Verification link sent!": "S'ha enviat un nou enllaç de verificació al teu correu electrònic.",
     "Verify Email Address": "Verifica el correu electrònic",
     "Click the button below to verify your email address.": "Clica al següent botó per verificar el correu electrònic.",
-    "Job Posting shared successfully!": "Oferta de feina compartida satisfactòriament!"
+    "Job Posting shared successfully!": "Oferta de feina compartida satisfactòriament!",
+    "Start Date": "Data d'inici",
+    "End Date": "Data de finalització",
+    "Total users": "Total d'usuaris",
+    "Users registered": "Usuaris registrats",
+    "Total job postings": "Total d'ofertes de feina",
+    "Job postings created": "Ofertes de feina creades"
 }

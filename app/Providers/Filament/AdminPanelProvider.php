@@ -4,13 +4,10 @@ declare(strict_types=1);
 
 namespace App\Providers\Filament;
 
-use App\Livewire\JobPostingsWidget;
-use App\Livewire\UsersWidget;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
-use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
@@ -33,8 +30,15 @@ final class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path($panelPath)
             ->login()
+            ->brandLogo(fn() => view('components.icons.laravel-catalunya-logo'))
+            ->brandLogoHeight('4rem')
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => Color::hex('#F97316'),
+                'danger'  => Color::hex('#DC2626'),
+                'warning' => Color::hex('#FB923C'),
+                'info'    => Color::hex('#6B7280'),
+                'success' => Color::hex('#16A34A'),
+                'gray'    => Color::Slate,
             ])
             ->spa()
             ->unsavedChangesAlerts()
@@ -42,14 +46,9 @@ final class AdminPanelProvider extends PanelProvider
             ->databaseNotificationsPolling('240s')
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
-            ->pages([
-                Dashboard::class,
-            ])
+            ->pages([])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
-            ->widgets([
-                UsersWidget::class,
-                JobPostingsWidget::class,
-            ])
+            ->widgets([])
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,

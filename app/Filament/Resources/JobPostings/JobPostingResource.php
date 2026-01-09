@@ -18,6 +18,7 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
+use Override;
 
 final class JobPostingResource extends Resource
 {
@@ -39,6 +40,7 @@ final class JobPostingResource extends Resource
         return __('Job Postings');
     }
 
+    #[Override]
     public static function getEloquentQuery(): Builder
     {
         if (Auth::user() instanceof User && Auth::user()->is_admin) {
@@ -48,16 +50,19 @@ final class JobPostingResource extends Resource
         return parent::getEloquentQuery()->where('user_id', Auth::user()->id);
     }
 
+    #[Override]
     public static function form(Schema $schema): Schema
     {
         return JobPostingForm::configure($schema);
     }
 
+    #[Override]
     public static function table(Table $table): Table
     {
         return JobPostingsTable::configure($table);
     }
 
+    #[Override]
     public static function getRelations(): array
     {
         return [

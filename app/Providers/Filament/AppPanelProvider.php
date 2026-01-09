@@ -9,13 +9,11 @@ use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
-use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
 use Filament\Support\Facades\FilamentView;
 use Filament\View\PanelsRenderHook;
-use Filament\Widgets\AccountWidget;
 use Illuminate\Contracts\View\View;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
@@ -23,9 +21,11 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Override;
 
 final class AppPanelProvider extends PanelProvider
 {
+    #[Override]
     public function register(): void
     {
         parent::register();
@@ -54,7 +54,7 @@ final class AppPanelProvider extends PanelProvider
             ->id('app')
             ->path($panelPath)
             ->login()
-            ->brandLogo(fn() => view('components.icons.laravel-catalunya-logo'))
+            ->brandLogo(fn () => view('components.icons.laravel-catalunya-logo'))
             ->brandLogoHeight('4rem')
             ->registration()
             ->emailVerification()

@@ -27010,25 +27010,28 @@ namespace App\Filament\Resources\Users\Pages {
             }
     }
 
+namespace App\Filament\Pages {
+    /**
+     */
+    class Dashboard extends \Filament\Pages\Dashboard {
+            }
+    }
+
+namespace App\Filament\Widgets {
+    /**
+     */
+    class StatsOverview extends \Filament\Widgets\StatsOverviewWidget {
+            }
+    }
+
 namespace Filament\Widgets {
     /**
      */
-    class AccountWidget extends \Filament\Widgets\Widget {
+    class StatsOverviewWidget extends \Filament\Widgets\Widget {
             }
     /**
      */
     class Widget extends \Livewire\Component {
-            }
-    /**
-     */
-    class ChartWidget extends \Filament\Widgets\Widget {
-            }
-    }
-
-namespace App\Livewire {
-    /**
-     */
-    class NewUsersWidget extends \Filament\Widgets\ChartWidget {
             }
     }
 
@@ -27088,6 +27091,28 @@ namespace Filament\Auth\Pages {
      * @property-read Schema $form
      */
     class Register extends \Filament\Pages\SimplePage {
+            }
+    }
+
+namespace App\Filament\App\Pages {
+    /**
+     */
+    class Dashboard extends \Filament\Pages\Dashboard {
+            }
+    }
+
+namespace App\Filament\App\Widgets {
+    /**
+     */
+    class JobPostingsPerUserOverview extends \Filament\Widgets\StatsOverviewWidget {
+            }
+    }
+
+namespace Filament\Auth\Pages\EmailVerification {
+    /**
+     * @property-read Action $resendNotificationAction
+     */
+    class EmailVerificationPrompt extends \Filament\Pages\SimplePage {
             }
     }
 

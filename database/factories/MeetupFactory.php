@@ -21,11 +21,11 @@ final class MeetupFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => 'Laravel Catalunya Meetup #'.Meetup::query()->count() + 1,
+            'title' => 'Laravel Catalunya Meetup',
             'description' => $this->faker->text(),
             'scheduled_at' => $this->faker->dateTimeBetween('+1 week', '+1 month'),
             'timezone' => MeetupTimezoneEnum::CET,
-            'location' => 'remote'
+            'location' => 'remote',
         ];
     }
 }

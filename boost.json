@@ -1,9 +1,20 @@
 {
     "agents": [
-        "copilot"
+        "copilot",
+        "opencode"
     ],
-    "editors": [
-        "phpstorm"
+    "guidelines": true,
+    "herd_mcp": false,
+    "mcp": true,
+    "packages": [
+        "filament/filament",
+        "spatie/boost-spatie-guidelines"
     ],
-    "guidelines": []
+    "sail": false,
+    "skills": [
+        "fluxui-development",
+        "livewire-development",
+        "pest-testing",
+        "tailwindcss-development"
+    ]
 }

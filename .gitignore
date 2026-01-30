@@ -24,3 +24,6 @@ docker-compose.yml
 Homestead.json
 Homestead.yaml
 Thumbs.db
+.ai/guidelines/local
+.opencode
+opencode.json

@@ -2,11 +2,14 @@
 
 declare(strict_types=1);
 
+use App\Http\Controllers\MeetupController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', fn () => view('welcome'))->name('home');
+
+Route::get('/meetups', MeetupController::class)->name('meetups');
 
 Route::view('/termes-i-condicions', 'legal.terms')->name('legal.terms');
 

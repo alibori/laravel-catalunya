@@ -7,6 +7,10 @@
 
         <!-- Desktop Navigation -->
         <div class="hidden sm:flex items-center gap-2 lg:gap-3">
+            <a href="{{ route('meetups') }}" class="text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:text-red-600 dark:hover:text-red-500 transition-colors px-3 py-2">
+                Meetups
+            </a>
+
             @if (Route::has('filament.app.auth.login'))
                 <div class="flex items-center gap-2 lg:gap-3">
                     @auth
@@ -65,8 +69,15 @@
         x-on:click.away="mobileMenuOpen = false"
         x-cloak
         class="absolute top-full left-4 right-4 bg-white/95 dark:bg-zinc-900/95 backdrop-blur-lg sm:hidden p-4!">
-        @if (Route::has('filament.app.auth.login'))
-            <div class="flex gap-2 items-center justify-center">
+        <div class="flex gap-2 items-center justify-center">
+            <a href="{{ route('meetups') }}">
+                <x-buttons.tertiary>
+                    <x-icons.calendar />
+                    Meetups
+                </x-buttons.tertiary>
+            </a>
+
+            @if (Route::has('filament.app.auth.login'))
                 @auth
                     <a href="{{ url('/'.config('laravel_catalunya.filament.user_panel_path')) }}">
                         <x-buttons.tertiary>
@@ -90,8 +101,8 @@
                         </a>
                     @endif
                 @endauth
-            </div>
-        @endif
+            @endif
+        </div>
 
         <div class="flex items-center justify-center gap-2 mt-2 flex-wrap">
             <a href="https://t.me/laravelcatalunya" target="_blank" rel="noopener noreferrer">

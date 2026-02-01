@@ -9,7 +9,7 @@ This project is dockerized in a container called `laravel_cat`.
 
 ## Commands
 
-When run Laravel artisan or composer commands is needed, use the following format:
+When run Laravel artisan, vendor or composer commands is needed, use the following format:
 
 ```bash
 docker exec laravel_cat <command>
@@ -19,6 +19,12 @@ For example, to run migrations:
 
 ```bash
 docker exec laravel_cat php artisan migrate
+```
+
+To run tests:
+
+```bash
+docker exec laravel_cat .vendor/bin/pest
 ```
 
 To install composer dependencies:

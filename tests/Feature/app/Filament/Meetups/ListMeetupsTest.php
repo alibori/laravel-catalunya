@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use App\Filament\Resources\Sponsors\Pages\ListSponsors;
-use App\Models\Sponsor;
+use App\Filament\Resources\Meetups\Pages\ListMeetups;
+use App\Models\Meetup;
 use App\Models\User;
 
 beforeEach(function (): void {
@@ -13,9 +13,9 @@ beforeEach(function (): void {
 });
 
 test('can load the page', function (): void {
-    $sponsors = Sponsor::factory()->count(5)->create();
+    $meetups = Meetup::factory()->count(5)->create();
 
-    Livewire::test(ListSponsors::class)
+    Livewire::test(ListMeetups::class)
         ->assertOk()
-        ->assertCanSeeTableRecords($sponsors);
+        ->assertCanSeeTableRecords($meetups);
 });

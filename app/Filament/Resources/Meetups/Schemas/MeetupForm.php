@@ -6,8 +6,8 @@ namespace App\Filament\Resources\Meetups\Schemas;
 
 use App\Enums\Meetup\MeetupTimezoneEnum;
 use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
@@ -21,9 +21,9 @@ final class MeetupForm
                     ->label(__('Title'))
                     ->required()
                     ->maxLength(255),
-                Textarea::make('description')
+                RichEditor::make('description')
                     ->label(__('Description'))
-                    ->rows(4)
+                    ->required()
                     ->columnSpanFull(),
                 DateTimePicker::make('scheduled_at')
                     ->label(__('Scheduled at'))

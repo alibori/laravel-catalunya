@@ -12,7 +12,7 @@ use Telegram\Bot\Exceptions\TelegramSDKException;
 
 final class TelegramWebhookController extends Controller
 {
-    public function __construct(private SendWelcomeMessageToNewMembersAction $sendWelcomeMessageToNewMembersAction)
+    public function __construct(private readonly SendWelcomeMessageToNewMembersAction $sendWelcomeMessageToNewMembersAction)
     {
     }
 

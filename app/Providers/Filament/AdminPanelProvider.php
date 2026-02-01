@@ -30,7 +30,7 @@ final class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path($panelPath)
             ->login()
-            ->brandLogo(fn() => view('components.icons.laravel-catalunya-logo'))
+            ->brandLogo(fn () => view('components.icons.laravel-catalunya-logo'))
             ->brandLogoHeight('4rem')
             ->colors([
                 'primary' => Color::hex('#F97316'),

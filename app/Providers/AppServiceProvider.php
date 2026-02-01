@@ -11,12 +11,14 @@ use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
+use Override;
 
 final class AppServiceProvider extends ServiceProvider
 {
     /**
      * Register any application services.
      */
+    #[Override]
     public function register(): void
     {
     }
@@ -74,7 +76,7 @@ final class AppServiceProvider extends ServiceProvider
      */
     private function configureEmailVerificationMailContent(): void
     {
-        VerifyEmail::toMailUsing(fn (object $notifiable, string $url) => (new MailMessage())
+        VerifyEmail::toMailUsing(fn (object $notifiable, string $url) => new MailMessage()
             ->subject(__('Verify Email Address'))
             ->line(__('Click the button below to verify your email address.'))
             ->action(__('Verify Email Address'), $url));

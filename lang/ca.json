@@ -53,5 +53,8 @@
     "Total users": "Total d'usuaris",
     "Users registered": "Usuaris registrats",
     "Total job postings": "Total d'ofertes de feina",
-    "Job postings created": "Ofertes de feina creades"
+    "Job postings created": "Ofertes de feina creades",
+    "Scheduled at": "Programada per",
+    "Timezone": "Zona horària",
+    "Location": "Ubicació"
 }

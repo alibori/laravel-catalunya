@@ -15,6 +15,7 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Override;
 
 final class SponsorResource extends Resource
 {
@@ -39,16 +40,19 @@ final class SponsorResource extends Resource
         return __('Sponsors');
     }
 
+    #[Override]
     public static function form(Schema $schema): Schema
     {
         return SponsorForm::configure($schema);
     }
 
+    #[Override]
     public static function table(Table $table): Table
     {
         return SponsorsTable::configure($table);
     }
 
+    #[Override]
     public static function getRelations(): array
     {
         return [

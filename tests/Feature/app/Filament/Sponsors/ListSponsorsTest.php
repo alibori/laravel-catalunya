@@ -12,7 +12,7 @@ beforeEach(function (): void {
     $this->actingAs($admin);
 });
 
-it('can load the page', function (): void {
+test('can load the page', function (): void {
     $sponsors = Sponsor::factory()->count(5)->create();
 
     Livewire::test(ListSponsors::class)

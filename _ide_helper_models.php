@@ -53,6 +53,34 @@ namespace App\Models{
 namespace App\Models{
 /**
  * @property int $id
+ * @property string $title
+ * @property string|null $description
+ * @property \Illuminate\Support\Carbon $scheduled_at
+ * @property \App\Enums\Meetup\MeetupTimezoneEnum $timezone
+ * @property string $location
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Database\Factories\MeetupFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Meetup newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Meetup newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Meetup query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Meetup whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Meetup whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Meetup whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Meetup whereLocation($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Meetup whereScheduledAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Meetup whereTimezone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Meetup whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Meetup whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
+	#[\AllowDynamicProperties]
+	final class IdeHelperMeetup {}
+}
+
+namespace App\Models{
+/**
+ * @property int $id
  * @property string $name
  * @property string|null $website
  * @property string|null $logo_path

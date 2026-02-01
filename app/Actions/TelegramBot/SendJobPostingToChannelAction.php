@@ -8,7 +8,7 @@ use App\Models\JobPosting;
 use Telegram\Bot\Api;
 use Telegram\Bot\Exceptions\TelegramSDKException;
 
-final class SendJobPostingToChannelAction
+final readonly class SendJobPostingToChannelAction
 {
     private Api $telegram;
 

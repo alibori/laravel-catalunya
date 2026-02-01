@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Log;
 use Telegram\Bot\Api;
 use Telegram\Bot\Exceptions\TelegramSDKException;
 
-final class SendWelcomeMessageToNewMembersAction
+final readonly class SendWelcomeMessageToNewMembersAction
 {
     private Api $telegram;
 

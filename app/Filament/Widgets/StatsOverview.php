@@ -1,27 +1,30 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Filament\Widgets;
 
 use App\Models\JobPosting;
 use App\Models\User;
-use Carbon\Carbon;
 use Filament\Support\Icons\Heroicon;
 use Filament\Widgets\Concerns\InteractsWithPageFilters;
 use Filament\Widgets\StatsOverviewWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 use Illuminate\Database\Eloquent\Builder;
+use Override;
 
 final class StatsOverview extends StatsOverviewWidget
 {
     use InteractsWithPageFilters;
 
+    #[Override]
     public function getStats(): array
     {
-        $startDate = $this->pageFilters['startDate'] ?? Carbon::now()->startOfMonth();
-        $endDate = $this->pageFilters['endDate'] ?? Carbon::now();
+        $startDate = $this->pageFilters['startDate'] ?? \Illuminate\Support\Facades\Date::now()->startOfMonth();
+        $endDate = $this->pageFilters['endDate'] ?? \Illuminate\Support\Facades\Date::now();
 
         return [
-            StatsOverviewWidget\Stat::make(
+            Stat::make(
                 label: __('Total users'),
                 value: User::query()
                     ->when($startDate, fn (Builder $query) => $query->whereDate('created_at', '>=', $startDate))
@@ -32,7 +35,7 @@ final class StatsOverview extends StatsOverviewWidget
                 ->descriptionIcon(Heroicon::UserGroup)
                 ->color('success'),
 
-            StatsOverviewWidget\Stat::make(
+            Stat::make(
                 label: __('Total job postings'),
                 value: JobPosting::query()
                     ->when($startDate, fn (Builder $query) => $query->whereDate('created_at', '>=', $startDate))

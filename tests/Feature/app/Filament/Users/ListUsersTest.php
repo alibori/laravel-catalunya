@@ -11,7 +11,7 @@ beforeEach(function (): void {
     $this->actingAs($admin);
 });
 
-it('can load the page', function (): void {
+test('can load the page', function (): void {
     $users = User::factory()->count(5)->create();
 
     Livewire::test(ListUsers::class)

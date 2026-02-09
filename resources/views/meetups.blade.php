@@ -17,9 +17,9 @@
                         </div>
 
                         @if ($meetup->description)
-                            <x-texts.paragraph>
-                                {{ $meetup->description }}
-                            </x-texts.paragraph>
+                            <div class="meetup-description">
+                                {!! $meetup->description !!}
+                            </div>
                         @endif
 
                         <div class="flex flex-col gap-4">
@@ -53,4 +53,27 @@
             </div>
         @endif
     </section>
+
+    @if ($pastMeetups->isNotEmpty())
+        <section class="mt-16 mb-12">
+            <div class="max-w-4xl mx-auto">
+                <x-texts.title tag="h2" class="text-2xl lg:text-3xl font-bold text-center mb-8">
+                    Meetups Anteriors
+                </x-texts.title>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    @foreach ($pastMeetups as $pastMeetup)
+                        <x-meetup-card-simple :meetup="$pastMeetup" />
+                    @endforeach
+                </div>
+
+                @if ($pastMeetups->hasPages())
+                    <div class="mt-8">
+                        {{ $pastMeetups->links() }}
+                    </div>
+                @endif
+            </div>
+        </section>
+    @endif
 </x-layouts.guest>
+

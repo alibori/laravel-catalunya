@@ -14,6 +14,7 @@ final class SponsorsDisplay extends Component
     {
         return view('livewire.sponsors-display', [
             'sponsors' => Sponsor::query()
+                ->oldest()
                 ->get(),
         ]);
     }

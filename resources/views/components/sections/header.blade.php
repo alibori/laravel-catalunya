@@ -46,6 +46,11 @@
                     <x-icons.github />
                 </x-buttons.secondary>
             </a>
+            <a href="https://www.youtube.com/@laravelcatalunya" target="_blank" rel="noopener noreferrer">
+                <x-buttons.secondary>
+                    <x-icons.youtube />
+                </x-buttons.secondary>
+            </a>
             <x-theme />
         </div>
 
@@ -69,9 +74,9 @@
         x-on:click.away="mobileMenuOpen = false"
         x-cloak
         class="absolute top-full left-4 right-4 bg-white/95 dark:bg-zinc-900/95 backdrop-blur-lg sm:hidden p-4!">
-        <div class="flex gap-2 items-center justify-center">
-            <a href="{{ route('meetups') }}">
-                <x-buttons.tertiary>
+        <div class="flex flex-col gap-2">
+            <a href="{{ route('meetups') }}" class="w-full">
+                <x-buttons.tertiary class="w-full justify-center">
                     <x-icons.calendar />
                     Meetups
                 </x-buttons.tertiary>
@@ -79,22 +84,22 @@
 
             @if (Route::has('filament.app.auth.login'))
                 @auth
-                    <a href="{{ url('/'.config('laravel_catalunya.filament.user_panel_path')) }}">
-                        <x-buttons.tertiary>
+                    <a href="{{ url('/'.config('laravel_catalunya.filament.user_panel_path')) }}" class="w-full">
+                        <x-buttons.tertiary class="w-full justify-center">
                             <x-icons.graph />
                             Dashboard
                         </x-buttons.tertiary>
                     </a>
                 @else
-                    <a href="{{ route('filament.app.auth.login') }}">
-                        <x-buttons.tertiary>
+                    <a href="{{ route('filament.app.auth.login') }}" class="w-full">
+                        <x-buttons.tertiary class="w-full justify-center">
                             <x-icons.login />
                             {{ __('Log in') }}
                         </x-buttons.tertiary>
                     </a>
                     @if (Route::has('filament.app.auth.register'))
-                        <a href="{{ route('filament.app.auth.register') }}">
-                            <x-buttons.primary>
+                        <a href="{{ route('filament.app.auth.register') }}" class="w-full">
+                            <x-buttons.primary class="w-full justify-center">
                                 <x-icons.add-user />
                                 {{ __('Register') }}
                             </x-buttons.primary>
@@ -104,22 +109,31 @@
             @endif
         </div>
 
-        <div class="flex items-center justify-center gap-2 mt-2 flex-wrap">
-            <a href="https://t.me/laravelcatalunya" target="_blank" rel="noopener noreferrer">
-                <x-buttons.secondary>
+        <div class="grid grid-cols-2 gap-2 mt-4">
+            <a href="https://t.me/laravelcatalunya" target="_blank" rel="noopener noreferrer" class="w-full">
+                <x-buttons.secondary class="w-full justify-center">
                     <x-icons.telegram />
                     Telegram
                 </x-buttons.secondary>
             </a>
 
-            <a href="https://github.com/alibori/laravel-catalunya" target="_blank" rel="noopener noreferrer">
-                <x-buttons.secondary>
+            <a href="https://github.com/alibori/laravel-catalunya" target="_blank" rel="noopener noreferrer" class="w-full">
+                <x-buttons.secondary class="w-full justify-center">
                     <x-icons.github />
-                    <span>GitHub</span>
+                    GitHub
                 </x-buttons.secondary>
             </a>
 
-            <x-theme :desc="true" />
+            <a href="https://www.youtube.com/@laravelcatalunya" target="_blank" rel="noopener noreferrer" class="w-full">
+                <x-buttons.secondary class="w-full justify-center">
+                    <x-icons.youtube />
+                    YouTube
+                </x-buttons.secondary>
+            </a>
+
+            <div class="w-full">
+                <x-theme :desc="true" class="w-full" />
+            </div>
         </div>
     </x-card>
 </header>

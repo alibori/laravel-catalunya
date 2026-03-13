@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace Database\Factories;
 
 use App\Enums\TimezoneEnum;
-use App\Models\Meetup;
+use App\Models\Workshop;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends Factory<Meetup>
+ * @extends Factory<Workshop>
  */
-final class MeetupFactory extends Factory
+final class WorkshopFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -21,11 +21,13 @@ final class MeetupFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => 'Laravel Catalunya Meetup',
+            'title' => 'Laravel Catalunya Workshop',
             'description' => $this->faker->text(),
             'scheduled_at' => $this->faker->dateTimeBetween('+1 week', '+1 month'),
             'timezone' => TimezoneEnum::CET,
             'location' => 'remote',
+            'jitsi_url' => $this->faker->url(),
+            'jitsi_pass' => $this->faker->word(),
         ];
     }
 }

@@ -9,6 +9,10 @@ use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
 final readonly class GetPastMeetupsAction
 {
+    /**
+     * @param int $perPage
+     * @return LengthAwarePaginator<int, Meetup>
+     */
     public function execute(int $perPage = 12): LengthAwarePaginator
     {
         return Meetup::query()

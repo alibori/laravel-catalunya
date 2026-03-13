@@ -5,22 +5,22 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Enums\TimezoneEnum;
-use App\Policies\MeetupPolicy;
-use Database\Factories\MeetupFactory;
+use App\Policies\WorkshopPolicy;
+use Database\Factories\WorkshopFactory;
 use Illuminate\Database\Eloquent\Attributes\UsePolicy;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * @mixin IdeHelperMeetup
+ * @mixin IdeHelperWorkshop
  */
-#[UsePolicy(MeetupPolicy::class)]
-final class Meetup extends Model
+#[UsePolicy(WorkshopPolicy::class)]
+final class Workshop extends Model
 {
-    /** @use HasFactory<MeetupFactory> */
+    /** @use HasFactory<WorkshopFactory> */
     use HasFactory;
 
-    protected $table = 'meetups';
+    protected $table = 'workshops';
 
     /**
      * Get the attributes that should be cast.
@@ -41,5 +41,7 @@ final class Meetup extends Model
         'scheduled_at',
         'timezone',
         'location',
+        'jitsi_url',
+        'jitsi_pass',
     ];
 }

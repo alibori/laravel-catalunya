@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Filament\Resources\Meetups\Schemas;
+namespace App\Filament\Resources\Workshops\Schemas;
 
 use App\Enums\TimezoneEnum;
 use Filament\Forms\Components\DateTimePicker;
@@ -11,7 +11,7 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
-final class MeetupForm
+final class WorkshopForm
 {
     public static function configure(Schema $schema): Schema
     {
@@ -34,6 +34,15 @@ final class MeetupForm
                     ->required(),
                 TextInput::make('location')
                     ->label(__('Location'))
+                    ->maxLength(255),
+                TextInput::make('jitsi_url')
+                    ->label(__('Jitsi URL'))
+                    ->url()
+                    ->required()
+                    ->maxLength(255),
+                TextInput::make('jitsi_pass')
+                    ->label(__('Jitsi Password'))
+                    ->required()
                     ->maxLength(255),
             ]);
     }

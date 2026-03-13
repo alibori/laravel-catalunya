@@ -56,5 +56,13 @@
     "Job postings created": "Ofertes de feina creades",
     "Scheduled at": "Programada per",
     "Timezone": "Zona horària",
-    "Location": "Ubicació"
+    "Location": "Ubicació",
+    "Created at": "Creat el",
+    "Updated at": "Actualitzat el",
+    "Meetup": "Meetup",
+    "Meetups": "Meetups",
+    "Workshop": "Workshop",
+    "Workshops": "Workshops",
+    "Jitsi URL": "URL de Jitsi",
+    "Jitsi Password": "Contrasenya de Jitsi"
 }

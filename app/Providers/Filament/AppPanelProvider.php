@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\Providers\Filament;
 
 use App\Filament\Resources\JobPostings\JobPostingResource;
+use App\Filament\Resources\Meetups\MeetupResource;
+use App\Filament\Resources\Workshops\WorkshopResource;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -72,6 +74,8 @@ final class AppPanelProvider extends PanelProvider
             ->databaseNotificationsPolling('240s')
             ->resources([
                 JobPostingResource::class,
+                MeetupResource::class,
+                WorkshopResource::class,
             ])
             ->discoverPages(in: app_path('Filament/App/Pages'), for: 'App\Filament\App\Pages')
             ->pages([])

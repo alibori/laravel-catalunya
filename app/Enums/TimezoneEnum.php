@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\Enums\Meetup;
+namespace App\Enums;
 
 use Filament\Support\Contracts\HasColor;
 use Filament\Support\Contracts\HasLabel;
 
-enum MeetupTimezoneEnum: string implements HasLabel, HasColor
+enum TimezoneEnum: string implements HasLabel, HasColor
 {
     case CET = 'cet';
     case CEST = 'cest';

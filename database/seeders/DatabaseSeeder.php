@@ -7,6 +7,7 @@ namespace Database\Seeders;
 use Database\Seeders\Mock\JobPostingsTableSeeder;
 use Database\Seeders\Mock\MeetupsTableSeeder;
 use Database\Seeders\Mock\MockUsersTableSeeder;
+use Database\Seeders\Mock\WorkshopsTableSeeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -24,6 +25,7 @@ final class DatabaseSeeder extends Seeder
                 MockUsersTableSeeder::class,
                 JobPostingsTableSeeder::class,
                 MeetupsTableSeeder::class,
+                WorkshopsTableSeeder::class,
             ]);
         }
     }

@@ -56,7 +56,7 @@ namespace App\Models{
  * @property string $title
  * @property string|null $description
  * @property \Illuminate\Support\Carbon $scheduled_at
- * @property \App\Enums\Meetup\MeetupTimezoneEnum $timezone
+ * @property \App\Enums\TimezoneEnum $timezone
  * @property string $location
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
@@ -86,6 +86,7 @@ namespace App\Models{
  * @property string|null $logo_path
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read string|null $logo_url
  * @method static \Database\Factories\SponsorFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Sponsor newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Sponsor newQuery()
@@ -134,5 +135,37 @@ namespace App\Models{
  */
 	#[\AllowDynamicProperties]
 	final class IdeHelperUser {}
+}
+
+namespace App\Models{
+/**
+ * @property int $id
+ * @property string $title
+ * @property string|null $description
+ * @property \Illuminate\Support\Carbon $scheduled_at
+ * @property \App\Enums\TimezoneEnum $timezone
+ * @property string $location
+ * @property string $jitsi_url
+ * @property string $jitsi_pass
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Database\Factories\WorkshopFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Workshop newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Workshop newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Workshop query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Workshop whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Workshop whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Workshop whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Workshop whereJitsiPass($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Workshop whereJitsiUrl($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Workshop whereLocation($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Workshop whereScheduledAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Workshop whereTimezone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Workshop whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Workshop whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
+	#[\AllowDynamicProperties]
+	final class IdeHelperWorkshop {}
 }
 

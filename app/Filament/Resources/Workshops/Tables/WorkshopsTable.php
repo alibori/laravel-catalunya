@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Filament\Resources\Meetups\Tables;
+namespace App\Filament\Resources\Workshops\Tables;
 
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
@@ -10,7 +10,7 @@ use Filament\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-final class MeetupsTable
+final class WorkshopsTable
 {
     public static function configure(Table $table): Table
     {
@@ -30,6 +30,10 @@ final class MeetupsTable
                 TextColumn::make('location')
                     ->label(__('Location'))
                     ->searchable(),
+                TextColumn::make('jitsi_url')
+                    ->label(__('Jitsi URL'))
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('created_at')
                     ->label(__('Created at'))
                     ->dateTime()

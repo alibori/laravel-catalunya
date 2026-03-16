@@ -12,25 +12,25 @@ This project is dockerized in a container called `laravel_cat`.
 When run Laravel artisan, vendor or composer commands is needed, use the following format:
 
 ```bash
-docker exec laravel_cat <command>
+docker exec -i laravel_cat <command>
 ```
 
 For example, to run migrations:
 
 ```bash
-docker exec laravel_cat php artisan migrate
+docker exec -i laravel_cat php artisan migrate
 ```
 
 To run tests:
 
 ```bash
-docker exec laravel_cat .vendor/bin/pest
+docker exec -i laravel_cat .vendor/bin/pest
 ```
 
 To install composer dependencies:
 
 ```bash
-docker exec laravel_cat composer install
+docker exec -i laravel_cat composer install
 ```
 
 Take into account that `npm` and `node` commands should be run in your local machine, not inside the container. Be sure you have the correct Node.js version declared in the `.nvmrc` file. You can use `nvm` to manage Node.js versions.

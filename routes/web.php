@@ -2,14 +2,15 @@
 
 declare(strict_types=1);
 
-use App\Http\Controllers\Web\MeetupController;
+use App\Http\Controllers\Web\AgendaController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', fn () => view('welcome'))->name('home');
 
-Route::get('/meetups', MeetupController::class)->name('meetups');
+Route::get('/agenda', AgendaController::class)->name('agenda');
+Route::redirect('/meetups', '/agenda');
 
 Route::view('/termes-i-condicions', 'legal.terms')->name('legal.terms');
 

@@ -35,6 +35,11 @@ final class Meetup extends Model
         ];
     }
 
+    public function getEventTypeAttribute(): string
+    {
+        return 'meetup';
+    }
+
     protected $fillable = [
         'title',
         'description',

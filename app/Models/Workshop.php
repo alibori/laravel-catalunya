@@ -35,6 +35,11 @@ final class Workshop extends Model
         ];
     }
 
+    public function getEventTypeAttribute(): string
+    {
+        return 'workshop';
+    }
+
     protected $fillable = [
         'title',
         'description',

@@ -28,3 +28,6 @@ Thumbs.db
 !.ai/guidelines/local/.gitkeep
 .opencode
 opencode.json
+.claude
+.mcp.json
+CLAUDE.md

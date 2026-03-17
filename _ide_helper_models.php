@@ -60,6 +60,7 @@ namespace App\Models{
  * @property string $location
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read string $event_type
  * @method static \Database\Factories\MeetupFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Meetup newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Meetup newQuery()
@@ -145,10 +146,11 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon $scheduled_at
  * @property \App\Enums\TimezoneEnum $timezone
  * @property string $location
- * @property string $jitsi_url
- * @property string $jitsi_pass
+ * @property string|null $jitsi_url
+ * @property string|null $jitsi_pass
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read string $event_type
  * @method static \Database\Factories\WorkshopFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Workshop newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Workshop newQuery()

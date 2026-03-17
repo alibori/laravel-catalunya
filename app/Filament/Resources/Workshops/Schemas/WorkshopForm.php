@@ -38,11 +38,9 @@ final class WorkshopForm
                 TextInput::make('jitsi_url')
                     ->label(__('Jitsi URL'))
                     ->url()
-                    ->required()
                     ->maxLength(255),
                 TextInput::make('jitsi_pass')
                     ->label(__('Jitsi Password'))
-                    ->required()
                     ->maxLength(255),
             ]);
     }

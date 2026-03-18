@@ -10,6 +10,9 @@
             <a href="{{ route('agenda') }}" class="text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:text-red-600 dark:hover:text-red-500 transition-colors px-3 py-2">
                 Agenda
             </a>
+            <a href="{{ route('community-packages') }}" class="text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:text-red-600 dark:hover:text-red-500 transition-colors px-3 py-2">
+                Paquets
+            </a>
 
             @if (Route::has('filament.app.auth.login'))
                 <div class="flex items-center gap-2 lg:gap-3">
@@ -79,6 +82,12 @@
                 <x-buttons.tertiary class="w-full justify-center">
                     <x-icons.calendar />
                     Agenda
+                </x-buttons.tertiary>
+            </a>
+            <a href="{{ route('community-packages') }}" class="w-full">
+                <x-buttons.tertiary class="w-full justify-center">
+                    <x-icons.laravel />
+                    Paquets
                 </x-buttons.tertiary>
             </a>
 

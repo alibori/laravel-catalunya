@@ -64,5 +64,18 @@
     "Workshop": "Workshop",
     "Workshops": "Workshops",
     "Jitsi URL": "URL de Jitsi",
-    "Jitsi Password": "Contrasenya de Jitsi"
+    "Jitsi Password": "Contrasenya de Jitsi",
+    "Community Packages": "Paquets de la comunitat",
+    "Submit a Package": "Publicar un paquet",
+    "Register to Submit": "Registra't per publicar",
+    "Community Package": "Paquet de la comunitat",
+    "Package Name": "Nom del paquet",
+    "Package URL": "URL del paquet",
+    "Submitted by": "Enviat per",
+    "URL": "URL",
+    "Pending": "Pendent",
+    "Approved": "Aprovat",
+    "Rejected": "Rebutjat",
+    "Approve": "Aprovar",
+    "Reject": "Rebutjar"
 }

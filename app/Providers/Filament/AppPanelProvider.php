@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Providers\Filament;
 
 use App\Filament\Resources\JobPostings\JobPostingResource;
+use App\Filament\Resources\CommunityPackages\CommunityPackageResource;
 use App\Filament\Resources\Meetups\MeetupResource;
 use App\Filament\Resources\Workshops\WorkshopResource;
 use Filament\Http\Middleware\Authenticate;
@@ -74,6 +75,7 @@ final class AppPanelProvider extends PanelProvider
             ->databaseNotificationsPolling('240s')
             ->resources([
                 JobPostingResource::class,
+                CommunityPackageResource::class,
                 MeetupResource::class,
                 WorkshopResource::class,
             ])

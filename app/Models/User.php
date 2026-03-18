@@ -75,4 +75,12 @@ final class User extends Authenticatable implements FilamentUser, MustVerifyEmai
     {
         return $this->hasMany(JobPosting::class);
     }
+
+    /**
+     * @return HasMany<CommunityPackage, covariant User>
+     */
+    public function communityPackages(): HasMany
+    {
+        return $this->hasMany(CommunityPackage::class);
+    }
 }

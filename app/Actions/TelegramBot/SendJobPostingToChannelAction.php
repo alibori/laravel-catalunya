@@ -53,7 +53,7 @@ final readonly class SendJobPostingToChannelAction
      */
     private function handleJobPostingShoutOut(array $data): void
     {
-        $chat = config('telegram.bots.mybot.chats.jobs');
+        $chat = config('telegram.bots.mybot.channel_chat_id');
         $thread = config('telegram.bots.mybot.threads.jobs');
 
         $this->telegram->sendMessage([

@@ -66,10 +66,11 @@ final readonly class SendWelcomeMessageToNewMembersAction
         /** @var string $name */
         $name = $user['first_name'] ?? 'Usuari';
 
+        $chat = config('telegram.bots.mybot.channel_chat_id');
         $thread = config('telegram.bots.mybot.threads.welcome');
 
         $this->telegram->sendMessage([
-            'chat_id'            => $data['chat']['id'],
+            'chat_id'            => $chat,
             'message_thread_id'  => $thread,
             'text'               => "Benvingut/da, {$name}! 🎉",
         ]);

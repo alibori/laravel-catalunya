@@ -15,6 +15,35 @@ namespace App\Models{
 /**
  * @property int $id
  * @property int $user_id
+ * @property string $name
+ * @property string $description
+ * @property string $url
+ * @property \App\Enums\CommunityPackage\CommunityPackageStatusEnum $status
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\User $user
+ * @method static \Database\Factories\CommunityPackageFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CommunityPackage newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CommunityPackage newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CommunityPackage query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CommunityPackage whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CommunityPackage whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CommunityPackage whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CommunityPackage whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CommunityPackage whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CommunityPackage whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CommunityPackage whereUrl($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CommunityPackage whereUserId($value)
+ * @mixin \Eloquent
+ */
+	#[\AllowDynamicProperties]
+	final class IdeHelperCommunityPackage {}
+}
+
+namespace App\Models{
+/**
+ * @property int $id
+ * @property int $user_id
  * @property string $title
  * @property string $description
  * @property \App\Enums\JobPosting\JobPostingTypeEnum $type
@@ -60,7 +89,7 @@ namespace App\Models{
  * @property string $location
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read string $event_type
+ * @property-read mixed $event_type
  * @method static \Database\Factories\MeetupFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Meetup newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Meetup newQuery()
@@ -115,6 +144,8 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property bool $is_admin
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\CommunityPackage> $communityPackages
+ * @property-read int|null $community_packages_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\JobPosting> $jobPostings
  * @property-read int|null $job_postings_count
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
@@ -150,7 +181,7 @@ namespace App\Models{
  * @property string|null $jitsi_pass
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read string $event_type
+ * @property-read mixed $event_type
  * @method static \Database\Factories\WorkshopFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Workshop newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Workshop newQuery()

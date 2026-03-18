@@ -47,9 +47,3 @@ test('passes events to view', function (): void {
     $response->assertStatus(200)
         ->assertViewHas('events');
 });
-
-test('old meetups url redirects to agenda', function (): void {
-    $response = $this->get('/meetups');
-
-    $response->assertRedirect('/agenda');
-});

@@ -8,6 +8,7 @@ use App\Enums\TimezoneEnum;
 use App\Policies\WorkshopPolicy;
 use Database\Factories\WorkshopFactory;
 use Illuminate\Database\Eloquent\Attributes\UsePolicy;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -35,9 +36,12 @@ final class Workshop extends Model
         ];
     }
 
-    public function getEventTypeAttribute(): string
+    /**
+     * @return Attribute<string, null>
+     */
+    protected function eventType(): Attribute
     {
-        return 'workshop';
+        return Attribute::make(get: fn () => 'workshop');
     }
 
     protected $fillable = [

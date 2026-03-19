@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use App\Http\Controllers\Web\AgendaController;
 use App\Http\Controllers\Web\CommunityPackagesController;
+use App\Http\Controllers\Web\ShowCommunityPackageController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -13,6 +14,7 @@ Route::get('/', fn () => view('welcome'))->name('home');
 Route::get('/agenda', AgendaController::class)->name('agenda');
 
 Route::get('/paquets-de-la-comunitat', CommunityPackagesController::class)->name('community-packages');
+Route::get('/paquets-de-la-comunitat/{slug}', ShowCommunityPackageController::class)->name('community-packages.show');
 
 Route::view('/termes-i-condicions', 'legal.terms')->name('legal.terms');
 

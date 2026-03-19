@@ -8,6 +8,7 @@ use App\Enums\CommunityPackage\CommunityPackageStatusEnum;
 use App\Filament\Resources\CommunityPackages\CommunityPackageResource;
 use Filament\Resources\Pages\CreateRecord;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 use Override;
 
 final class CreateCommunityPackage extends CreateRecord
@@ -24,6 +25,10 @@ final class CreateCommunityPackage extends CreateRecord
         if ( ! Auth::user()?->is_admin) {
             $data['user_id'] = Auth::id();
             $data['status'] = CommunityPackageStatusEnum::Pending;
+        }
+
+        if (empty($data['slug'])) {
+            $data['slug'] = Str::slug($data['name']);
         }
 
         return $data;

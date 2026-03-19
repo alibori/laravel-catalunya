@@ -19,8 +19,8 @@
 }
 
 @layer components {
-    /* Styles for HTML content in meetup descriptions */
-    .meetup-description {
+    /* Styles for HTML content created through rich editor */
+    .rich-content {
         h1,
         h2,
         h3,

@@ -21,6 +21,7 @@ namespace App\Models{
  * @property \App\Enums\CommunityPackage\CommunityPackageStatusEnum $status
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string $slug
  * @property-read \App\Models\User $user
  * @method static \Database\Factories\CommunityPackageFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder<static>|CommunityPackage newModelQuery()
@@ -30,6 +31,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder<static>|CommunityPackage whereDescription($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|CommunityPackage whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|CommunityPackage whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CommunityPackage whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|CommunityPackage whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|CommunityPackage whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|CommunityPackage whereUrl($value)

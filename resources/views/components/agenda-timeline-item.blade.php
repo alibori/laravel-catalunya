@@ -76,7 +76,7 @@
         >
             <div class="flex flex-col gap-4">
                 @if ($event->description)
-                    <div class="prose dark:prose-invert prose-sm max-w-none text-zinc-700 dark:text-zinc-300">
+                    <div class="rich-content text-sm text-zinc-700 dark:text-zinc-300">
                         {!! $event->description !!}
                     </div>
                 @endif

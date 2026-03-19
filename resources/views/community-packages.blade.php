@@ -48,11 +48,11 @@
                                 {{ $package->name }}
                             </x-texts.title>
                             <x-texts.paragraph class="text-sm mb-4">
-                                {{ Str::limit($package->description, 150) }}
+                                {{ Str::limit(strip_tags($package->description), 150) }}
                             </x-texts.paragraph>
                         </div>
                         <div class="flex items-start justify-between mt-4">
-                            <a href="{{ $package->url }}" target="_blank" rel="noopener noreferrer"
+                            <a href="{{ route('community-packages.show', $package->slug) }}"
                                 class="text-sm font-medium text-red-500 hover:text-red-600 dark:text-red-400 dark:hover:text-red-300 transition-colors">
                                 {{ __('View Package') }} &rarr;
                             </a>

@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Filament\Resources\CommunityPackages\Schemas;
 
 use App\Enums\CommunityPackage\CommunityPackageStatusEnum;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 use Illuminate\Support\Facades\Auth;
@@ -27,10 +27,9 @@ final class CommunityPackageForm
                     ->label(__('Package Name'))
                     ->required()
                     ->columnSpanFull(),
-                Textarea::make('description')
+                RichEditor::make('description')
                     ->label(__('Description'))
                     ->required()
-                    ->rows(4)
                     ->columnSpanFull(),
                 TextInput::make('url')
                     ->label(__('Package URL'))

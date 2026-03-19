@@ -8,6 +8,7 @@ use App\Enums\CommunityPackage\CommunityPackageStatusEnum;
 use App\Models\CommunityPackage;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 /**
  * @extends Factory<CommunityPackage>
@@ -28,9 +29,12 @@ final class CommunityPackageFactory extends Factory
      */
     public function definition(): array
     {
+        $name = $this->faker->words(3, true);
+
         return [
             'user_id' => User::factory(),
-            'name' => $this->faker->words(3, true),
+            'name' => $name,
+            'slug' => Str::slug($name).'-'.$this->faker->unique()->randomNumber(5),
             'description' => $this->faker->paragraph(),
             'url' => $this->faker->url(),
             'status' => $this->faker->randomElement(CommunityPackageStatusEnum::cases()),

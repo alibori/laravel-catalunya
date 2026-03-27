@@ -45,6 +45,41 @@ namespace App\Models{
 namespace App\Models{
 /**
  * @property int $id
+ * @property string $name
+ * @property string $slug
+ * @property string|null $logo_path
+ * @property string $description
+ * @property string|null $website
+ * @property string|null $industry
+ * @property string|null $location
+ * @property bool $is_visible
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read string|null $logo_url
+ * @method static \Database\Factories\CompanyFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Company newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Company newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Company query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Company whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Company whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Company whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Company whereIndustry($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Company whereIsVisible($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Company whereLocation($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Company whereLogoPath($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Company whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Company whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Company whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Company whereWebsite($value)
+ * @mixin \Eloquent
+ */
+	#[\AllowDynamicProperties]
+	final class IdeHelperCompany {}
+}
+
+namespace App\Models{
+/**
+ * @property int $id
  * @property int $user_id
  * @property string $title
  * @property string $description

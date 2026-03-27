@@ -3,7 +3,9 @@
 declare(strict_types=1);
 
 use App\Http\Controllers\Web\AgendaController;
+use App\Http\Controllers\Web\CompaniesController;
 use App\Http\Controllers\Web\CommunityPackagesController;
+use App\Http\Controllers\Web\ShowCompanyController;
 use App\Http\Controllers\Web\ShowCommunityPackageController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
@@ -15,6 +17,9 @@ Route::get('/agenda', AgendaController::class)->name('agenda');
 
 Route::get('/paquets-de-la-comunitat', CommunityPackagesController::class)->name('community-packages');
 Route::get('/paquets-de-la-comunitat/{slug}', ShowCommunityPackageController::class)->name('community-packages.show');
+
+Route::get('/qui-utilitza-laravel', CompaniesController::class)->name('companies');
+Route::get('/qui-utilitza-laravel/{slug}', ShowCompanyController::class)->name('companies.show');
 
 Route::view('/termes-i-condicions', 'legal.terms')->name('legal.terms');
 

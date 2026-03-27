@@ -80,5 +80,17 @@
     "Reject": "Rebutjar",
     "Back to Packages": "Tornar a paquets",
     "View Package": "Veure paquet",
-    "Visit Package": "Visitar paquet"
+    "Visit Package": "Visitar paquet",
+    "Company": "Empresa",
+    "Companies": "Empreses",
+    "Industry": "Sector",
+    "Visible": "Visible",
+    "Logo": "Logo",
+    "General": "General",
+    "Details": "Detalls",
+    "View Company": "Veure empresa",
+    "Back to Companies": "Tornar a empreses",
+    "Visit Website": "Visitar lloc web",
+    "Does your company use Laravel? We want to showcase it!": "La teva empresa utilitza Laravel? Volem mostrar-la!",
+    "Send us an email with your company info to be added to this list.": "Envia'ns un correu amb la informació de la teva empresa per ser afegida a aquesta llista."
 }

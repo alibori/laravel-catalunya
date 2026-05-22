@@ -13,6 +13,9 @@
             <a href="{{ route('community-packages') }}" class="text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:text-red-600 dark:hover:text-red-500 transition-colors px-3 py-2">
                 Paquets
             </a>
+            <a href="{{ route('companies') }}" class="text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:text-red-600 dark:hover:text-red-500 transition-colors px-3 py-2">
+                Empreses
+            </a>
 
             @if (Route::has('filament.app.auth.login'))
                 <div class="flex items-center gap-2 lg:gap-3">
@@ -88,6 +91,12 @@
                 <x-buttons.tertiary class="w-full justify-center">
                     <x-icons.laravel />
                     Paquets
+                </x-buttons.tertiary>
+            </a>
+            <a href="{{ route('companies') }}" class="w-full">
+                <x-buttons.tertiary class="w-full justify-center">
+                    <x-icons.building />
+                    Empreses
                 </x-buttons.tertiary>
             </a>
 

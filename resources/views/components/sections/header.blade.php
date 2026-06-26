@@ -47,7 +47,7 @@
                     <x-icons.telegram />
                 </x-buttons.secondary>
             </a>
-            <a href="https://github.com/alibori/laravel-catalunya" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/Laravel-Catalunya/laravel-catalunya" target="_blank" rel="noopener noreferrer">
                 <x-buttons.secondary>
                     <x-icons.github />
                 </x-buttons.secondary>
@@ -135,7 +135,7 @@
                 </x-buttons.secondary>
             </a>
 
-            <a href="https://github.com/alibori/laravel-catalunya" target="_blank" rel="noopener noreferrer" class="w-full">
+            <a href="https://github.com/Laravel-Catalunya/laravel-catalunya" target="_blank" rel="noopener noreferrer" class="w-full">
                 <x-buttons.secondary class="w-full justify-center">
                     <x-icons.github />
                     GitHub
